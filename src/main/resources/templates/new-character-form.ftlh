@@ -1,16 +1,16 @@
 <#import "layout.ftlh" as layout>
-<@layout.layout title="Add a Character">
+<@layout.layout title=formTitle>
 
     <div class="character-form">
 
-        <h1>Add a New Character</h1>
+        <h1>${formTitle}</h1>
 
         <p class="intro-text">
             Want to add another character to the gallery?
             Fill out the form below.
         </p>
 
-        <form action="/characters" method="post">
+        <form action="${formAction}" method="post">
 
             <div class="mb-3">
                 <label for="name" class="form-label">Character Name:</label>
@@ -18,6 +18,7 @@
                        class="form-control"
                        id="name"
                        name="name"
+                       value="${character.name!''}"
                        required>
             </div>
 
@@ -26,7 +27,8 @@
                 <input type="text"
                        class="form-control"
                        id="universe"
-                       name="universe">
+                       name="universe"
+                       value="${character.universe!''}">
             </div>
 
             <div class="mb-3">
@@ -34,7 +36,8 @@
                 <input type="text"
                        class="form-control"
                        id="role"
-                       name="role">
+                       name="role"
+                       value="${character.role!''}">
             </div>
 
             <div class="mb-3">
@@ -42,7 +45,8 @@
                 <input type="text"
                        class="form-control"
                        id="species"
-                       name="species">
+                       name="species"
+                       value="${character.species!''}">
             </div>
 
             <div class="mb-3">
@@ -50,7 +54,8 @@
                 <input type="url"
                        class="form-control"
                        id="imageUrl"
-                       name="imageUrl">
+                       name="imageUrl"
+                       value="${character.imageUrl!''}">
             </div>
 
             <div class="mb-3">
@@ -59,11 +64,11 @@
                           id="description"
                           name="description"
                           rows="5"
-                          required></textarea>
+                          required>${character.description!''}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Add Character
+                ${formTitle}
             </button>
 
         </form>

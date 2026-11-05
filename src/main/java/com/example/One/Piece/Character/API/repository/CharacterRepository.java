@@ -8,5 +8,6 @@ import java.util.List;
 public interface CharacterRepository extends JpaRepository<AnimeCharacter, Long> {
         List<AnimeCharacter> findByUniverseIgnoreCase (String universe);
         List<AnimeCharacter> findByNameContainingIgnoreCase (String name);
+        List<AnimeCharacter> findByNameContainingIgnoreCaseAndUniverseIgnoreCase(String name, String universe);
 
 }

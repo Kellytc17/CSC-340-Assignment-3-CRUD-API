@@ -58,7 +58,11 @@ public class CharacterService {
         return characterRepository.findByNameContainingIgnoreCase(name);
     }
 
+    public List<AnimeCharacter> searchCharacters(String name, String universe) {
+        return characterRepository.findByNameContainingIgnoreCaseAndUniverseIgnoreCase(name, universe);
+    }
+
     public AnimeCharacter findById(long id) {
-        return characterRepository.findById(id).orElse(null);
+        return characterRepository.findById(id).orElseThrow(() -> new RuntimeException("Character not found with ID: " + id));
     }
 }
