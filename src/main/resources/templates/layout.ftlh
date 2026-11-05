@@ -24,6 +24,48 @@
         .navbar-brand {
             color: #ffffff !important;
         }
+
+        .character-form {
+            background-color: white;
+            border: 2px solid #0b3d91;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .character-form h1 {
+            color: #0b3d91;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #0b3d91;
+        }
+
+        .btn-primary {
+            background-color: #0b3d91;
+            border-color: #0b3d91;
+        }
+
+        .btn-primary:hover {
+            background-color: #082f70;
+            border-color: #0b3d91;
+        }
+
+        .form-control {
+            border: 2px solid hsl(0, 2%, 25%);
+        }
+
+
     </style>
 </head>
 
