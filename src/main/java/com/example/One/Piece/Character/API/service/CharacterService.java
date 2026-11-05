@@ -1,4 +1,3 @@
-
 package com.example.One.Piece.Character.API.service;
 
 import com.example.One.Piece.Character.API.entity.AnimeCharacter;
@@ -36,6 +35,7 @@ public class CharacterService {
             character.setUniverse(updatedCharacter.getUniverse());
             character.setSpecies(updatedCharacter.getSpecies());
             character.setRole(updatedCharacter.getRole());
+            character.setImageUrl(updatedCharacter.getImageUrl());
 
             return characterRepository.save(character);
         });
@@ -59,6 +59,6 @@ public class CharacterService {
     }
 
     public AnimeCharacter findById(long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return characterRepository.findById(id).orElse(null);
     }
 }
