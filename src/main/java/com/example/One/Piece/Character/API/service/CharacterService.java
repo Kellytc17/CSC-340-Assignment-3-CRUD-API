@@ -57,4 +57,8 @@ public class CharacterService {
     public List<AnimeCharacter> searchCharactersByName(String name) {
         return characterRepository.findByNameContainingIgnoreCase(name);
     }
+
+    public AnimeCharacter findById(long id) {
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
 }
