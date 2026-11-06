@@ -51,15 +51,15 @@ public class CharacterUIController {
         List<AnimeCharacter> characters;
         
         boolean hasName = name != null && !name.isBlank();
-        boolean hasCategory = role != null && !role.isBlank();
+        boolean hasRole = role != null && !role.isBlank();
 
 
          if (hasName && hasRole) {
-            characters = Service.searchCharacters(name, role);
+            characters = Service.searchCharactersByNameAndRole(name, role);
         } else if (hasName) {
             characters = Service.searchCharactersByName(name);
         } else if (hasRole) {
-            characters = Service.getCharactersByUniverse(role);
+            characters = Service.getCharactersByRole(role);
         } else {
             characters = Service.getAllCharacters();
         }
