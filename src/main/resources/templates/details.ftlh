@@ -3,8 +3,11 @@
 
 <div class="character-detail">
 
-    <img src="${animeChar.imageUrl!'/images/placeholder.svg'}"
-         alt="${animeChar.name}">
+    <#if animeChar.imageUrl?? && animeChar.imageUrl?has_content>
+        <img src="${animeChar.imageUrl}" alt="${animeChar.name}">
+    <#else>
+        <img src="/images/Placeholder.jpg" alt="No image available">
+    </#if>
 
     <h1>${animeChar.name}</h1>
 

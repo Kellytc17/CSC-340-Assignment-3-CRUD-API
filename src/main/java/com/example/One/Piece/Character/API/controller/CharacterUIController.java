@@ -31,7 +31,7 @@ public class CharacterUIController {
         return "about";
     }
     
-    @GetMapping("/characters/{id}")
+    @GetMapping("/characters/{id:\\d+}")
     public String details(@PathVariable long id, Model model) {
        try {
            AnimeCharacter character = Service.findById(id);
@@ -46,27 +46,27 @@ public class CharacterUIController {
     @GetMapping 
     public String gallery(
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String role,
             Model model) {
         List<AnimeCharacter> characters;
         
         boolean hasName = name != null && !name.isBlank();
-        boolean hasCategory = category != null && !category.isBlank();
+        boolean hasCategory = role != null && !role.isBlank();
 
 
-         if (hasName && hasCategory) {
-            characters = Service.searchCharacters(name, category);
+         if (hasName && hasRole) {
+            characters = Service.searchCharacters(name, role);
         } else if (hasName) {
             characters = Service.searchCharactersByName(name);
-        } else if (hasCategory) {
-            characters = Service.getCharactersByUniverse(category);
+        } else if (hasRole) {
+            characters = Service.getCharactersByUniverse(role);
         } else {
             characters = Service.getAllCharacters();
         }
 
         model.addAttribute("characters", characters);
         model.addAttribute("name", name);
-        model.addAttribute("category", category);
+        model.addAttribute("role", role);
 
         return "index";
 
@@ -79,7 +79,7 @@ public class CharacterUIController {
         model.addAttribute("formTitle", "Add a Character");
         model.addAttribute("formAction", "/characters");
 
-        return "character-form";
+        return "new-character-form";
     }   
 
     @PostMapping("characters")
@@ -96,7 +96,7 @@ public class CharacterUIController {
             model.addAttribute("character", character);
             model.addAttribute("formTitle", "Edit Character");
             model.addAttribute("formAction", "/characters/" + id);
-            return "character-form";
+            return "new-character-form";
 
         } catch (RuntimeException exception) {
             model.addAttribute("errorMessage", exception.getMessage() == null ? "Character not found" : exception.getMessage());

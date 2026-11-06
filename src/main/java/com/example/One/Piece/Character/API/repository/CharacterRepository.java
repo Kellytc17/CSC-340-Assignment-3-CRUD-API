@@ -9,5 +9,6 @@ public interface CharacterRepository extends JpaRepository<AnimeCharacter, Long>
         List<AnimeCharacter> findByUniverseIgnoreCase (String universe);
         List<AnimeCharacter> findByNameContainingIgnoreCase (String name);
         List<AnimeCharacter> findByNameContainingIgnoreCaseAndUniverseIgnoreCase(String name, String universe);
-
+        List<AnimeCharacter> findByRoleIgnoreCase(String role);
+        List<AnimeCharacter> findByNameContainingIgnoreCaseAndRoleIgnoreCase(String name, String role);
 }

@@ -19,14 +19,14 @@
             </div>
 
             <div class="col-md-5">
-                <label for="category" class="form-label">Search by category</label>
+                <label for="role" class="form-label">Search by role</label>
                 <input
                     type="text"
                     class="form-control"
-                    id="category"
-                    name="category"
-                    placeholder="Enter a category..."
-                    value="${category!''}">
+                    id="role"
+                    name="role"
+                    placeholder="Enter a role..."
+                    value="${role!''}">
             </div>
 
             <div class="col-md-2 d-flex align-items-end">
@@ -53,7 +53,7 @@
                                 alt="${character.name}">
                         <#else>
                             <img
-                                src="/images/placeholder.png"
+                                src="/images/Placeholder.jpg"
                                 class="card-img-top character-img"
                                 alt="No image available">
                         </#if>
