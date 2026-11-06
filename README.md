@@ -4,10 +4,10 @@
 The One Piece Character API is a REST API built with Java, Spring Boot, Spring Data JPA, and PostgreSQL. It manages characters from the One Piece universe focusing on the Straw Hat Pirates during the Thriller Bark arc. The API supports creating, retrieving, updating, deleting, searching, and filtering character records. Character data is stored in a PostgreSQL database hosted on Neon.
 
 ## Character Entity
-The entity is named AimeCharacter and maps to the characters database table.
+The entity is named AnimeCharacter and maps to the characters database table.
 
 Attribute | Type | Rules 
-characterID | Long | Primary key, automatically generated 
+characterId | Long | Primary key, automatically generated 
 name | String | Required can't be blank 
 description | String | Required can't be blank
 universe | String | Optional identifies the character's universe 
@@ -25,6 +25,17 @@ PUT | /api/characters/{id} | Update an existing character | 200 OK
 DELETE | /api/characters/{id} | Delete a character by ID | 204 No Content
 GET | /api/characters/filter?universe=One%20Piece | Filter characters by universe | 200 OK  
 GET | /api/characters/search?name=brook | Search characters by partial name, ignoring case | 200 OK
+
+## Web Applicatuib Pages
+Route | Description 
+/ | Character gallery with search by name and role 
+/character/{id} | Character details page 
+/about | About page describing the project 
+/characters/new | Form to add a character 
+/characters/{id}/edit | Form to edit an existing character 
+POST /characters | Submits a new character 
+POST /characters/{id} | Saves changes to a character 
+POST /characters/{id}/delete | Delets a character 
 
 ### Error Responses
 - 400 Bad Request: The request body fails validation, such as when the name or description is blank.
@@ -62,7 +73,10 @@ A successful update returns 200 OK with the updated character. If the ID does no
 The API is deployed on Render and uses a PostgreSQL database hosted on Neon.
 
 ## Live API URL:
-https://one-piece-character-api.onrender.com/api/characters 
+
+Home Page: https://one-piece-character-api.onrender.com/
+
+REST API: https://one-piece-character-api.onrender.com/api/characters 
 
 ### Cold Starts
 This project uses a free Render web service. Free services may sleep after a period of inactivity. The first request after the service has been idle can take up to a minute while the service starts again.
