@@ -26,7 +26,7 @@ DELETE | /api/characters/{id} | Delete a character by ID | 204 No Content
 GET | /api/characters/filter?universe=One%20Piece | Filter characters by universe | 200 OK  
 GET | /api/characters/search?name=brook | Search characters by partial name, ignoring case | 200 OK
 
-## Web Applicatuib Pages
+## Web Application Pages
 Route | Description 
 / | Character gallery with search by name and role 
 /character/{id} | Character details page 
